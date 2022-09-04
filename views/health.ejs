@@ -4,24 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
     <script src="https://kit.fontawesome.com/8f020836b6.js" crossorigin="anonymous"></script>
 
     <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
     rel="stylesheet"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-    crossorigin="anonymous"
-  />
-
-
-    <title>Document</title>
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid me-auto">
-          <a class="navbar-brand me-auto" href="#">Burnout tracker</a>
+          <a class="navbar-brand me-auto" href="/preventBurnout">Burnout tracker</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -35,8 +32,8 @@
           </button>
   
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- <ul class="me-auto mb-2 mb-lg-0"></ul>
-            <button
+            <ul class="me-auto mb-2 mb-lg-0"></ul>
+            <!-- <button
               class="d-flex btn text-primary border border-primary me-2"
               type="submit"
             >
@@ -53,20 +50,26 @@
       </nav>
 
 
-    <h1>Create an Account</h1>
 
 
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
+      <h1>Prevent Burnout</h1>
+      <section>
+      <ul class="nav nav-tabs">
+          <li class="tabs health"><a  href="/preventBurnout/health">Health</a></li>
+          <li class="tabs" ><a href="exercise">Exercise</a></li>
+          <li class="tabs"><a  href="mood">Mood</a></li>
+          <li class="tabs"><a  href="actvities">Activites</a></li>
+        </ul>
+     </section>
+
+
+    <form action="/preventBurnout/createTodo" method='POST'>
+        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
         <input type="submit">
     </form>
+
+    <a href="/logout">Logout</a>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

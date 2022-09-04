@@ -5,22 +5,91 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <script src="https://kit.fontawesome.com/8f020836b6.js" crossorigin="anonymous"></script>
+
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+    crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid me-auto">
+          <a class="navbar-brand me-auto" href="/preventBurnout">Burnout tracker</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="me-auto mb-2 mb-lg-0"></ul>
+            <!-- <button
+              class="d-flex btn text-primary border border-primary me-2"
+              type="submit"
+            >
+              Login
+            </button>
+            <button
+              class="btn text-primary border border-primary mt-2"
+              type="submit"
+            >
+              Sign-up
+            </button> -->
+          </div>
+        </div>
+      </nav>
+
+
+
+
+      <h1>Prevent Burnout</h1>
+      <section>
+      <ul class="nav nav-tabs">
+          <li class="tabs health"><a  href="/preventBurnout/health">Health</a></li>
+          <li class="tabs" ><a href="exercise">Exercise</a></li>
+          <li class="tabs"><a  href="mood">Mood</a></li>
+          <li class="tabs"><a  href="actvities">Activites</a></li>
+        </ul>
+     </section>
+
+     <main>
+        <ul class="Log">
+            <% for(let i=0;i < todos.length;i++){%>
+               <li  class='<%= todos[i].completed === true ? 'completed' : 'not'%>'>
+            <span id="<%= todos[i]._id %>" class="todoItem">
+                <span class='<%= todos[i].completed === true ? 'completed' : 'not'%>'><%= todos[i].todo %></span>
+              <span class="Date"><%=todos[i].Date %></span>
+               <span class="fa fa-trash del"></span>
+                <span class="timerDisplay"> 00 : 00 : 00 : 000</span> 
+                <button class="pauseTimer">Pause</button>
+                <button class="startTimer">Start</button>
+               <button class="resetTimer">Reset</button>
+                
+             
             </li>
-    <% }) %>    
-    </ul>
+            <%}%> 
+          </ul>
+      </main>
+
+
+     
+    
+     
+  
 
     <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
-    <form action="/todos/createTodo" method='POST'>
+    <form action="/preventBurnout/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
         <input type="submit">
     </form>
