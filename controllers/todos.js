@@ -2,10 +2,12 @@ const Todo = require('../models/Todo')
 
 module.exports = {
 
-
+//health section//
     getHealth:(req,res)=>{
         res.render('health.ejs')
     },
+
+
     getTodos: async (req,res)=>{
         console.log(req.user)
         
