@@ -77,30 +77,51 @@ async function markIncomplete(){
 
 
 
-[...document.getElementsByClassName('startTimer')].forEach(function(item){
-    item.addEventListener("click", function() {
+// [...document.getElementsByClassName('startTimer')].forEach(function(item){
+//     item.addEventListener("click", function() {
+//     if(int!==null){
+//         clearInterval(int);
+//     }
+//     int = setInterval(displayTimer,10);
+// })
+// });
+
+
+// [...document.getElementsByClassName('pauseTimer')].forEach(function(item){
+//     item.addEventListener("click", function() {
+//     clearInterval(int)
+// })
+// });
+
+// [...document.getElementsByClassName('resetTimer')].forEach(function(item){
+//     item.addEventListener("click", function() {
+// //.addEventListener('click', ()=>{
+//     clearInterval(int);
+//     [milliseconds,seconds,minutes,hours] = [0,0,0,0];
+//     timerRef.innerHTML = '00 : 00 : 00 : 000 ';
+// })
+//});
+
+
+
+document.getElementById('startTimer').addEventListener('click', ()=>{
     if(int!==null){
         clearInterval(int);
     }
     int = setInterval(displayTimer,10);
-})
 });
 
-
-[...document.getElementsByClassName('pauseTimer')].forEach(function(item){
-    item.addEventListener("click", function() {
-    clearInterval(int)
-})
+document.getElementById('pauseTimer').addEventListener('click', ()=>{
+    clearInterval(int);
 });
 
-[...document.getElementsByClassName('resetTimer')].forEach(function(item){
-    item.addEventListener("click", function() {
-//.addEventListener('click', ()=>{
+document.getElementById('resetTimer').addEventListener('click', ()=>{
     clearInterval(int);
     [milliseconds,seconds,minutes,hours] = [0,0,0,0];
     timerRef.innerHTML = '00 : 00 : 00 : 000 ';
-})
 });
+
+
 
 function displayTimer(){
     milliseconds+=10;
