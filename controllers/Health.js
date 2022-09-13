@@ -9,9 +9,10 @@ module.exports = {
     
     try{
         const healthItems = await Health.find({userId:req.user.id})
+        const calorieItems = await Calories.find({userId:req.user.id})
       //  console.log(healthItems)
         const itemsLeft = await Health.countDocuments({userId:req.user.id,completed: false})
-        res.render('health.ejs', {health: healthItems, left: itemsLeft, user: req.user,  })
+      res.render('health.ejs', {health: healthItems, left: itemsLeft, user: req.user, calories: calorieItems})
     }catch(err){
         console.log(err)
     }
@@ -45,24 +46,22 @@ createHealth: async (req, res)=>{
 
 
     getCalories: async (req,res)=>{
-        // console.log(res)
-       // console.log(req.body.Calories)
+         console.log(res)
          try{
-             const CaloriesItems = await Calories.find({ userId:req.user})
-             console.log(req)
+            const calorieItems = await Calories.find({userId:req.user.id})
             // const itemsLeft = await Calories.countDocuments({userId:req.user.id,completed: false})
-             res.render('health.ejs', { Calories: req.body.Calories, user: req.user,  })
+             res.render('health.ejs', {health: healthItems, left: itemsLeft, user: req.user, calories: calorieItems})
          }catch(err){
              console.log(err)
          }
      },
      createCalories: async (req, res)=>{
-          console.log(req.body.Calories)
+         // console.log(req.body.Calories)
          try{
             // console.log(res)
              await Calories.create({Calories: req.body.Calories, userId:req.user.id, completed: false})
              console.log('Calories has been added!')
-             res.redirect('/preventBurnout/health/')
+             res.redirect('/preventBurnout/health')
          }catch(err){
              console.log('Error Branch')
              console.log(err)
