@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
-const TodoSchema = new mongoose.Schema({
-  todo: {
+const BurnoutSchema = new mongoose.Schema({
+  Burnout: {
     type: String,
     required: true,
   },
@@ -13,10 +13,8 @@ const TodoSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  Date:{
-    type: String,
-    required: true
-  }
+ 
 })
 
-module.exports = mongoose.model('Todo', TodoSchema)
+module.exports = mongoose.model('Burnout', BurnoutSchema)
+

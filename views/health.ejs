@@ -1,68 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
-    <script src="https://kit.fontawesome.com/8f020836b6.js" crossorigin="anonymous"></script>
+  <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+            <link rel="stylesheet" type="text/css" href="/css/style.css" /> 
+          <script src="https://kit.fontawesome.com/8f020836b6.js" crossorigin="anonymous"></script>
+      
+        
+          <base href="/"> 
+          <link rel="stylesheet" type="text/css" href="css/style.css">
+      </head>
+      <body>
 
-    <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-    crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid me-auto">
-          <a class="navbar-brand me-auto" href="/preventBurnout">Burnout tracker</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+      
+
+
+            <nav>
+              <div class="nav-wrapper">
+                <a href="/preventBurnout" class="brand-logo">Burnout tracker</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                  <li><a href="/preventBurnout/health">Health</a></li>
+                  <li><a href="/preventBurnout/exercise">Exercise</a></li>
+                  <li><a href="/preventBurnout/mood">Mood</a></li>
+                  <li><a href="/preventBurnout/actvities">Actvities</a></li>
+                  <li><a href="/logout">Logout</a></li>
+                </ul>
+              </div>
+            </nav>
+
+            <section>
+              <h1>health</h1>
+      
+            </section>
+
+
+
+
+
+
+
   
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="me-auto mb-2 mb-lg-0"></ul>
-            <!-- <button
-              class="d-flex btn text-primary border border-primary me-2"
-              type="submit"
-            >
-              Login
-            </button>
-            <button
-              class="btn text-primary border border-primary mt-2"
-              type="submit"
-            >
-              Sign-up
-            </button> -->
-          </div>
-        </div>
-      </nav>
+            <div >
+              <h2 >
+                <span><%= user.userName %> ,you have <%=Calories.Calories %> Calories left for the day.</span> </h2>
+            
+          
+          
+            </div>
+    
+      
+      <form action="/preventBurnout/health/createCalories" method='POST'>
+        <input type="number" placeholder="Enter Calorie amount" name='Calories' >
+        <input type="submit">
+        
+      </form>
+    
+            <main>
+              <ul class="Log">
+                  <% for(let i=0;i < health.length;i++){%>
+                     <li  class='<%= health[i].completed === true ? 'completed' : 'not'%>'>
+                  <span id="<%= health[i]._id %>" class="healthItem">
+                    
+                      <span class='<%= health[i].completed === true ? 'completed' : 'not'%>'><%= health[i].Date %></span>
+                      <span class='<%= health[i].completed === true ? 'completed' : 'not'%>'><%= health[i].Meal%></span>
+                      <span class='<%= health[i].completed === true ? 'completed' : 'not'%>'><%= health[i].Description%></span>
+                      <span class='<%= health[i].completed === true ? 'completed' : 'not'%>'><%= health[i].Calories%></span>
+                    <!-- <span class="Date"><%=health[i].Date %></span> -->
+                    <!-- <span class="Date"><%=health[i].Date %></span> -->
+                     <span class="fa fa-trash delete1"></span>
+                     
+                     
+                   
+                  </li>
+                  <%}%> 
+                </ul>
+            </main>      
 
+            
 
+            <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
-
-      <h1>Prevent Burnout</h1>
-      <section>
-      <ul class="nav nav-tabs">
-          <li class="tabs health"><a  href="/preventBurnout/health">Health</a></li>
-          <li class="tabs" ><a href="exercise">Exercise</a></li>
-          <li class="tabs"><a  href="mood">Mood</a></li>
-          <li class="tabs"><a  href="actvities">Activites</a></li>
-        </ul>
-     </section>
-
-
+            <form action="/preventBurnout/health/createHealth" method='POST'>
+              <input type="date" placeholder="Time/date" name='Date'>
+                <input type="text" placeholder="Breakfast lunch dinner" name='Meal'>
+                <input type="text" placeholder="Description" name='Description'>
+                <input type="text" placeholder="Calories" name='Calories'>
+                <input type="submit">
+            </form>
+        
 
 
      
