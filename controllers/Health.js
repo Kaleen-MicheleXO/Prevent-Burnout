@@ -10,9 +10,32 @@ module.exports = {
     try{
         const healthItems = await Health.find({userId:req.user.id})
         const calorieItems = await Calories.find({userId:req.user.id})
-      //  console.log(healthItems)
+      
         const itemsLeft = await Health.countDocuments({userId:req.user.id,completed: false})
-      res.render('health.ejs', {health: healthItems, left: itemsLeft, user: req.user, calories: calorieItems})
+        let caloriesLeft=0
+        
+        for(let i=0;i<healthItems.length;i++){
+            caloriesLeft += healthItems[i].Calories
+        }
+
+        let Breakfast=0
+        let Lunch=0
+        let Dinner=0
+        for(let i=0;i<healthItems.length;i++){
+            if(healthItems[i].Meal==='Breakfast'){
+                Breakfast += healthItems[i].Calories
+            }else if(healthItems[i].Meal==='Lunch'){
+                Lunch += healthItems[i].Calories
+            }else Dinner += healthItems[i].Calories
+
+        }
+        
+
+        
+
+
+      
+      res.render('health.ejs', {health: healthItems, left: itemsLeft, user: req.user, calories: calorieItems, caloriesLeft:caloriesLeft, Breakfast:Breakfast, Lunch:Lunch,Dinner:Dinner,})
     }catch(err){
         console.log(err)
     }

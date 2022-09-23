@@ -22,7 +22,7 @@ const HealthSchema = new mongoose.Schema({
       required: false
     },
     Calories:{
-      type: String,
+      type: Number,
       required: false
     },
     
