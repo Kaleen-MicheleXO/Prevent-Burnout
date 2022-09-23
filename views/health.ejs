@@ -25,21 +25,42 @@
         <input type="number" placeholder="Enter Calorie amount" name='Calories' >
         <input type="submit">
       </form>
-    
-            <main>
-              <ul class="Log">
-                  <% for(let i=0;i < health.length;i++){%>
-                     <li  class='<%= health[i].completed === true ? 'completed' : 'not'%>'>
-                  <span id="<%= health[i]._id %>" class="healthItem">
-                      <span class='<%= health[i].completed === true ? 'completed' : 'not'%>'><%= health[i].Date %></span>
-                      <span class='<%= health[i].completed === true ? 'completed' : 'not'%>'><%= health[i].Meal%></span>
-                      <span class='<%= health[i].completed === true ? 'completed' : 'not'%>'><%= health[i].Description%></span>
-                      <span class='<%= health[i].completed === true ? 'completed' : 'not'%>'><%= health[i].Calories%></span>
-                     <span class="fa fa-trash delete1"></span>
-                  </li>
-                  <%}%> 
-                </ul>
-            </main>      
+
+
+      <table class="highlight">
+        <thead>
+          <tr>
+              <th>Date</th>
+              <th>Meal</th>
+              <th>Description</th>
+              <th>Calories</th>
+          </tr>
+        </thead>
+
+         <tbody>
+          <ul class="Log">
+          <% for(let i=0;i < health.length;i++){%>
+           
+              <span id="<%= health[i]._id %>" class="healthItem"> <tr>
+            <td class="" id="<%= health[i]._id %>"><span> <%= health[i].Date %></span></td>
+            <td class="" id="<%= health[i]._id %>"><span > <%= health[i].Meal%></span</td>
+            <td class="" id="<%= health[i]._id %>"><span > <%= health[i].Description%></span> </td>
+            <td class=""id="<%= health[i]._id %>"><span > <%= health[i].Calories%></span> </td>
+          <td class="" id="<%= health[i]._id %>"><span   id="<%= health[i]._id %>" class="fa fa-trash delete1"    > </span> </td>
+          </tr>
+          <%}%> 
+        </tbody> 
+        
+       
+      </ul>
+      </table>
+
+
+
+
+
+
+     
 
 
             <form action="/preventBurnout/health/createHealth" method='POST'>

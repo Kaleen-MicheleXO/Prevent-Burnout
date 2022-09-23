@@ -30,16 +30,13 @@ module.exports = {
 
         }
         
-
-        
-
-
-      
       res.render('health.ejs', {health: healthItems, left: itemsLeft, user: req.user, calories: calorieItems, caloriesLeft:caloriesLeft, Breakfast:Breakfast, Lunch:Lunch,Dinner:Dinner,})
     }catch(err){
         console.log(err)
     }
     },
+
+
 createHealth: async (req, res)=>{
   console.log(req)
     try{
@@ -52,9 +49,10 @@ createHealth: async (req, res)=>{
     }
     },
 
+    
     deleteHealth: async (req, res)=>{
     console.log( req.body.healthIdFromJSFile)
-    
+    console.log(hellpp)
     try{
         
         await Health.findOneAndDelete({_id:req.body.healthIdFromJSFile})
@@ -65,6 +63,9 @@ createHealth: async (req, res)=>{
         console.log(err)
     }
     },
+
+
+
 
 
 
