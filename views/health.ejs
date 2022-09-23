@@ -1,52 +1,22 @@
-  <!DOCTYPE html>
-      <html lang="en">
-      <head>
-          <meta charset="UTF-8">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Document</title>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-            <link rel="stylesheet" type="text/css" href="/css/style.css" /> 
-          <script src="https://kit.fontawesome.com/8f020836b6.js" crossorigin="anonymous"></script>
-      
-        
-          <base href="/"> 
-          <link rel="stylesheet" type="text/css" href="css/style.css">
-      </head>
+<%- include('partials/header') -%>
+     
       <body>
-
-      
-
-
-            <nav>
-              <div class="nav-wrapper">
-                <a href="/preventBurnout" class="brand-logo">Burnout tracker</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                  <li><a href="/preventBurnout/health">Health</a></li>
-                  <li><a href="/preventBurnout/exercise">Exercise</a></li>
-                  <li><a href="/preventBurnout/mood">Mood</a></li>
-                  <li><a href="/preventBurnout/actvities">Actvities</a></li>
-                  <li><a href="/logout">Logout</a></li>
-                </ul>
-              </div>
-            </nav>
-
             <section>
               <h1>health</h1>
       
             </section>
 
 
-
-
-
-
-
-  
-            <div >
-             <h2> <span><%= user.userName %> ,you have <%= calories[0].Calories %> Calories left for the day.</span> </h2> 
-            
-          
+            <div>
+           <h3>
+            Breakfast calories<%=Breakfast%></h3>
+           <h3>Lunch calories<%=Lunch%> </h3>
+           <h3>Dinner calories<%=Dinner%></h3>
+             <% if(calories.length > 0) { %>
+              <span><%= user.userName %> ,you have had <%=caloriesLeft%> for today, you set a daily goal for  <%= calories[calories.length-1].Calories %> Calories, you have  <%= calories[calories.length-1].Calories - caloriesLeft%> left.</span> </h2>
+       <% } else { %>
+              <span><%= user.userName %> ,you have 0 Calories left for the day.</span> </h2>
+       <% } %>
           
             </div>
     
@@ -54,7 +24,6 @@
       <form action="/preventBurnout/health/createCalories" method='POST'>
         <input type="number" placeholder="Enter Calorie amount" name='Calories' >
         <input type="submit">
-        
       </form>
     
             <main>
@@ -62,47 +31,37 @@
                   <% for(let i=0;i < health.length;i++){%>
                      <li  class='<%= health[i].completed === true ? 'completed' : 'not'%>'>
                   <span id="<%= health[i]._id %>" class="healthItem">
-                    
                       <span class='<%= health[i].completed === true ? 'completed' : 'not'%>'><%= health[i].Date %></span>
                       <span class='<%= health[i].completed === true ? 'completed' : 'not'%>'><%= health[i].Meal%></span>
                       <span class='<%= health[i].completed === true ? 'completed' : 'not'%>'><%= health[i].Description%></span>
                       <span class='<%= health[i].completed === true ? 'completed' : 'not'%>'><%= health[i].Calories%></span>
-                    <!-- <span class="Date"><%=health[i].Date %></span> -->
-                    <!-- <span class="Date"><%=health[i].Date %></span> -->
                      <span class="fa fa-trash delete1"></span>
-                     
-                     
-                   
                   </li>
                   <%}%> 
                 </ul>
             </main>      
 
-            
-
-            <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
             <form action="/preventBurnout/health/createHealth" method='POST'>
               <input type="date" placeholder="Time/date" name='Date'>
-                <input type="text" placeholder="Breakfast lunch dinner" name='Meal'>
-                <input type="text" placeholder="Description" name='Description'>
-                <input type="text" placeholder="Calories" name='Calories'>
-                <input type="submit">
+                  <select class="input-field" name="Meal">
+                    <option  name ='Meal'value="Meal" disabled selected>Choose your dinner</option>
+                    <option value="Breakfast">Breakfast</option>
+                    <option  value="Lunch">Lunch</option>
+                    <option  value="Dinner">Dinner</option>
+                  </select>
+              <input type="text" placeholder="Description" name='Description'>
+              <input type="text" placeholder="Calories" name='Calories'>
+              <input type="submit">
             </form>
-        
+      
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var sel= document.querySelectorAll('select');
+     M.FormSelect.init(sel);
+  });
+</script>
 
-     
-    
-     
-  
-
-   
-
-    
-
-    <a href="/logout">Logout</a>
-
-    <script src="js/main.js"></script>
+<%- include('partials/footer') -%>
 </body>
-</html>
