@@ -1,27 +1,21 @@
 
-.completed{
+/* .completed{
     text-decoration: line-through;
     color: gray;
 }
 .not{
     text-decoration: underline;
-}
+} */
 h1{
-    color: purple;
+    
     text-align: center;
 }
-.tabs{
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    margin: 0% 1% 0%;
-    padding: 1% 3%;
-}
+
 main{
     width:100%;
     /* border:1px solid red; */
 }
-.Data-Log{
+/* .Data-Log{
     display:inline-block;
     width:100%;
     border-bottom: 1px solid black;
@@ -29,10 +23,81 @@ main{
 li{
     border-bottom: 1px solid black;
 
-}
+} */
 
 table{
 width:75%;
 margin:0%auto;
 }
 
+ .form-input{
+    width:40%;
+     margin:3% auto; 
+    border-radius: 4%;
+    padding:3%;
+   
+
+} 
+.calorieCount{
+ text-align: center;
+    display: flex;
+    justify-content:  center;
+    flex-wrap: wrap;
+    width:60%;
+    margin:2% auto 0%;
+    height: 145px;
+  line-height: 200px;
+}
+.calorieItems{
+    margin: 10px auto;
+    width: 183px;
+    height: 110px;
+    font-size: 14px;
+
+display: inline-block;
+vertical-align: middle;
+line-height: 70px;
+}
+.calorie{
+ margin:0% auto;
+    width:40%;
+    height:10%;
+}
+
+/* #expend {
+    display:none;  
+  } */
+  #expend + .smalldesc {
+    max-height:10px;
+    overflow:hidden;
+    transition:all .3s ease;
+  }
+  #expend:checked + .smalldesc {
+    max-height:160px;  
+  }
+
+.caloriePara{
+    text-align: center;
+}
+.account{
+    text-align: center;
+}
+.log{
+    width:32%;
+    margin:0 auto;
+    padding:3% 4% 4%;
+    border-radius: 3%;
+}
+.button{
+    width: 100%;
+    margin-top: 9%;
+}
+.healthContainer{
+    width: 25%;
+    margin-left:5%;
+    padding:4%;
+    border-radius: 2%;
+}
+h2{
+    margin:0%;
+}
