@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,45 +13,24 @@
     crossorigin="anonymous"
   />
     <title>Document</title>
-</head>
+</head> -->
+<%- include('partials/header') -%>
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid me-auto">
-          <a class="navbar-brand me-auto" href="#">Burnout tracker</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-  
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- <ul class="me-auto mb-2 mb-lg-0"></ul>
-            <button
-              class="d-flex btn text-primary border border-primary me-2"
-              type="submit"
-            >
-              Login
-            </button>
-            <button
-              class="btn text-primary border border-primary mt-2"
-              type="submit"
-            >
-              Sign-up
-            </button> -->
-          </div>
-        </div>
-      </nav>
+  <nav>
+    <div class="nav-wrapper #26a69a teal lighten-1">
+      <a href="/preventBurnout" class="brand-logo">Burnout tracker</a>
+      <!-- <a  class="brand-logo center">Health </a> -->
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/login"> Login</a></li>
+        <li><a href="/signup"> Signup</a></li>
+      </ul>
+    </div>
+  </nav>
 
 
-    <h1>Prevent Burnout homepage</h1>
-    <a href="/login"> Login</a>
-    <a href="/signup"> Signup</a>
+    <h1> Welcome to Prevent Burnout </h1>
+    <!-- <a href="/login"> Login</a>
+    <a href="/signup"> Signup</a> -->
 </body>
 </html>

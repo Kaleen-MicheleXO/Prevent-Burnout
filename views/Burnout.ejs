@@ -1,13 +1,26 @@
 
       <%- include('partials/header') -%>
-      <h1>Prevent Burnout Home page</h1>
-      <div >
-           <h2> <%=timeOfDay%> <%= user.userName %> </h2>
+      <nav>
+       <div class="nav-wrapper #26a69a teal lighten-1">
+         <a href="/preventBurnout" class="brand-logo">Burnout tracker</a>
+         <a href="#" class="brand-logo center">Homepage</a>
+         <ul id="nav-mobile" class="right hide-on-med-and-down">
+           <li><a href="/preventBurnout/health">Health</a></li>
+           <li><a href="/preventBurnout/exercise">Exercise</a></li>
+           <li><a href="/preventBurnout/mood">Mood</a></li>
+           <li><a href="/preventBurnout/actvities">Actvities</a></li>
+           <li><a href="/logout">Logout</a></li>
+         </ul>
+       </div>
+     </nav>
+     <h1> <%=timeOfDay%> <%= user.userName[0].toUpperCase()+ user.userName.slice(1) %> </h1>
+      <div  class="healthContainer z-depth-2">
+         <h2 class="center-align">Health</h2>
             
         <% if(calories.length > 0) { %>
-         <span><%= user.userName %> ,you have had <%=caloriesLeft%> for today, you set a daily goal for  <%= calories[calories.length-1].Calories %> Calories, you have  <%= calories[calories.length-1].Calories - caloriesLeft%> left.</span> </h2>
+         <span> Total Calories: <%=caloriesLeft%> </span> 
   <% } else { %>
-         <span><%= user.userName %> ,you have 0 Calories left for the day.</span> </h2>
+         <span><%= user.userName[0].toUpperCase()+ user.userName.slice(1)%> ,you have 0 Calories left for the day.</span> </h2>
   <% } %>
        </div>
  

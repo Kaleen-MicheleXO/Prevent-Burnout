@@ -1,33 +1,83 @@
 <%- include('partials/header') -%>
      
       <body>
-            <section>
-              <h1>health</h1>
-      
+        <nav>
+          <div class="nav-wrapper #26a69a teal lighten-1">
+            <a href="/preventBurnout" class="brand-logo">Burnout tracker</a>
+            <a  class="brand-logo center">Health <label for="expend" class="btn-floating btn-small waves-effect   #26a69a teal lighten-2" >+</label></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+             
+              <li><a href="/preventBurnout/health" >Health</a></li>
+              <li><a href="/preventBurnout/exercise">Exercise</a></li>
+              <li><a href="/preventBurnout/mood">Mood</a></li>
+              <li><a href="/preventBurnout/actvities">Actvities</a></li>
+              <li><a href="/logout">Logout</a></li>
+            </ul>
+          </div>
+        </nav>
+
+            <section class="">
+
+              <!-- <label for="expend" class="btn-floating btn-large waves-effect waves-light red  #26a69a teal lighten-1" >+</label> -->
+              <input type="checkbox" id="expend" />
+              <div class=" smalldesc">
+              <p class="font16 "> 
+                <form action="/preventBurnout/health/createCalories" method='POST' class="calorie  smalldesc">
+                <input type="number" placeholder="Enter Daily Calorie goal" name='Calories' >
+                <input class="center-align btn waves-effect waves-light " type="submit">
+              </form>
+                </p>
+              </div>
             </section>
 
+         
+            <table class="highlight">
+              <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Meal</th>
+                    <th>Description</th>
+                    <th>Calories</th>
+                </tr>
+              </thead>
+      
+               <tbody>
+                <ul class="Log">
+                <% for(let i=0;i < health.length;i++){%>
+                 
+                    <span id="<%= health[i]._id %>" class="healthItem"> <tr>
+                  <td class="" id="<%= health[i]._id %>"><span> <%= health[i].Date %></span></td>
+                  <td class="" id="<%= health[i]._id %>"><span > <%= health[i].Meal%></span</td>
+                  <td class="" id="<%= health[i]._id %>"><span > <%= health[i].Description%></span> </td>
+                  <td class=""id="<%= health[i]._id %>"><span > <%= health[i].Calories%></span> </td>
+                <td class="" id="<%= health[i]._id %>"><span   id="<%= health[i]._id %>" class="fa fa-trash delete1"    > </span> </td>
+                </tr>
+                <%}%> 
+              </tbody> 
+              
+             
+            </ul>
+            </table>
 
-            <div>
-           <h3>
-            Breakfast calories<%=Breakfast%></h3>
-           <h3>Lunch calories<%=Lunch%> </h3>
-           <h3>Dinner calories<%=Dinner%></h3>
+            <div class="calorieCount" >
+           <h3 class="form-input z-depth-2 calorieItems ">Breakfast: <%=Breakfast%></h3>
+           <h3 class="form-input z-depth-2 calorieItems" >Lunch:<%=Lunch%> </h3>
+           <h3 class="form-input z-depth-2 calorieItems">Dinner:<%=Dinner%></h3>
+          </div>
+
+          <div class="caloriePara">
              <% if(calories.length > 0) { %>
-              <span><%= user.userName %> ,you have had <%=caloriesLeft%> for today, you set a daily goal for  <%= calories[calories.length-1].Calories %> Calories, you have  <%= calories[calories.length-1].Calories - caloriesLeft%> left.</span> </h2>
+              <span><%= user.userName[0].toUpperCase()+ user.userName.slice(1) %>, you have had <%=caloriesLeft%> today, you set a daily goal for  <%= calories[calories.length-1].Calories %> Calories, you have  <%= calories[calories.length-1].Calories - caloriesLeft%> left.</span> </h2>
        <% } else { %>
-              <span><%= user.userName %> ,you have 0 Calories left for the day.</span> </h2>
+              <span><%= user.userName[0].toUpperCase()+ user.userName.slice(1)%> ,you have 0 Calories left for the day.</span> </h2>
        <% } %>
+           </div>
           
-            </div>
     
       
-      <form action="/preventBurnout/health/createCalories" method='POST'>
-        <input type="number" placeholder="Enter Calorie amount" name='Calories' >
-        <input type="submit">
-      </form>
+      
 
-
-      <table class="highlight">
+      <!-- <table class="highlight">
         <thead>
           <tr>
               <th>Date</th>
@@ -53,7 +103,7 @@
         
        
       </ul>
-      </table>
+      </table> -->
 
 
 
@@ -63,7 +113,7 @@
      
 
 
-            <form action="/preventBurnout/health/createHealth" method='POST'>
+            <form action="/preventBurnout/health/createHealth" method='POST' class="form-input z-depth-2 center-align">
               <input type="date" placeholder="Time/date" name='Date'>
                   <select class="input-field" name="Meal">
                     <option  name ='Meal'value="Meal" disabled selected>Choose your dinner</option>
@@ -73,9 +123,22 @@
                   </select>
               <input type="text" placeholder="Description" name='Description'>
               <input type="text" placeholder="Calories" name='Calories'>
-              <input type="submit">
+              <input class="  center-align btn waves-effect waves-light" type="submit">
             </form>
       
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
