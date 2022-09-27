@@ -72,6 +72,7 @@ const User = require('../models/User')
       userName: req.body.userName,
       email: req.body.email,
       password: req.body.password
+
     })
   
     User.findOne({$or: [

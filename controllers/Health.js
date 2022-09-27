@@ -49,10 +49,10 @@ createHealth: async (req, res)=>{
     }
     },
 
-    
+
     deleteHealth: async (req, res)=>{
     console.log( req.body.healthIdFromJSFile)
-    console.log(hellpp)
+   
     try{
         
         await Health.findOneAndDelete({_id:req.body.healthIdFromJSFile})

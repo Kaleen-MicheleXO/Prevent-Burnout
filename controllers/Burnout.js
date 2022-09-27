@@ -86,7 +86,7 @@ module.exports = {
            let timeOfDay;
            if(time>="13:00" && time<="16:00"){
                 timeOfDay='Good Afternoon'
-           }else if (time>="17:00" && time<="23:00"){
+           }else if (time>="16:01" && time<="23:00"){
             timeOfDay='Good Evening'
            }else timeOfDay='Good Morning'
     
