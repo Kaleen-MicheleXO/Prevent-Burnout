@@ -1,27 +1,69 @@
+<%- include('partials/header') -%>
 
-      <%- include('partials/header') -%>
-      <nav>
-       <div class="nav-wrapper #26a69a teal lighten-1">
-         <a href="/preventBurnout" class="brand-logo">Burnout tracker</a>
-         <a href="#" class="brand-logo center">Homepage</a>
-         <ul id="nav-mobile" class="right hide-on-med-and-down">
-           <li><a href="/preventBurnout/health">Health</a></li>
-           <li><a href="/preventBurnout/exercise">Exercise</a></li>
-           <li><a href="/preventBurnout/mood">Mood</a></li>
-           <li><a href="/preventBurnout/actvities">Actvities</a></li>
-           <li><a href="/logout">Logout</a></li>
-         </ul>
-       </div>
-     </nav>
-     <h1> <%=timeOfDay%> <%= user.userName[0].toUpperCase()+ user.userName.slice(1) %> </h1>
-      <div  class="healthContainer z-depth-2">
-         <h2 class="center-align">Health</h2>
-            
-        <% if(calories.length > 0) { %>
-         <span> Total Calories: <%=caloriesLeft%> </span> 
-  <% } else { %>
-         <span><%= user.userName[0].toUpperCase()+ user.userName.slice(1)%> ,you have 0 Calories left for the day.</span> </h2>
-  <% } %>
-       </div>
- 
-       <%- include('partials/footer') -%>
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">Profile</a></li>
+  <li><a href="/logout">Logout</a></li>
+  <li class="divider"></li>
+</ul>
+
+<nav>
+  <div class="nav-wrapper #26a69a teal lighten-1">
+    <a href="/preventBurnout" class="brand-logo">Prevent Burnout</a>
+    <a href="#" class="brand-logo center">Homepage</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="/preventBurnout/health">Health</a></li>
+      <li><a href="/preventBurnout/exercise">Exercise</a></li>
+      <li><a href="/preventBurnout/mood">Mood</a></li>
+      <li><a href="/preventBurnout/actvities">Actvities</a></li>
+      <!-- Dropdown Trigger -->
+      <li>
+        <a class="dropdown-trigger" href="#!" data-target="dropdown1"
+          >Dropdown<i class="material-icons right"></i
+        ></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<h1>
+  <%=timeOfDay%> <%= user.userName[0].toUpperCase()+ user.userName.slice(1) %>
+</h1>
+<p>
+  Welcome to Prevent burnout Homepage. Prevent Burnout is an application used to
+  help manange burnout wealther yourfeeling over whelmed from work or from your
+  day today tasks. This application will help track your diet, exercise, mood
+  and activites. Stay tuned for more updates as we progress with developing your
+  one shop stress reducing app!
+</p>
+
+<section class="row">
+  <div class="col s4 push-s2 z-depth-2 homepageSect">
+    <h2 class="center-align homegageSectTitle">Health</h2>
+    <div class="center-align data">
+      <% if(calories.length > 0) { %>
+      <span class="center-align"> Total Calories: <%=caloriesLeft%> </span><% }
+      else { %>
+      <span>
+        <%= user.userName[0].toUpperCase()+ user.userName.slice(1)%> ,you have 0
+        Calories left for the day. </span
+      ><% } %>
+    </div>
+  </div>
+
+  <div class="col s4 push-s2 z-depth-2 homepageSect" style="margin-left: 1%">
+    <h2 class="center-align homegageSectTitle">Exercise</h2>
+  </div>
+</section>
+
+<section class="row">
+  <div class="col s4 push-s2 z-depth-2 homepageSect">
+    <h2 class="center-align homegageSectTitle">Mood</h2>
+  </div>
+  <div class="col s4 push-s2 z-depth-2 homepageSect" style="margin-left: 1%">
+    <h2 class="center-align homegageSectTitle">Actvities</h2>
+  </div>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<%- include('partials/footer') -%>

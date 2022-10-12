@@ -91,6 +91,7 @@ line-height: 70px;
 .button{
     width: 100%;
     margin-top: 9%;
+    color:white;
 }
 .healthContainer{
     width: 25%;
@@ -101,3 +102,42 @@ line-height: 70px;
 h2{
     margin:0%;
 }
+.homepageSect{
+    height:125px;
+    border-radius: 2%;
+}
+.homegageSectTitle{
+    margin-top:2%;
+font-size: 30px;
+}
+.data{
+    margin-top: 2%;
+}
+ .home{
+    color:white;
+ }
+ .mainPg{
+display: inline-block;
+margin-top:15%;
+margin-left:15%;
+ }
+ .mainPg2{
+    display: inline-block;
+    margin-left:10%;
+ }
+ .btnHome{
+    width:100%;
+    margin-bottom:2%;
+ }
+ .welcome{
+    font-size:40px;
+   
+ }
+ footer{
+position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;   
+    
+
+ }
