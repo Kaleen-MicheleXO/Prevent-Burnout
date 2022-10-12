@@ -1,21 +1,16 @@
 
 <%- include('partials/header') -%>
 <body>
-
     <nav>
         <div class="nav-wrapper #26a69a teal lighten-1">
-          <a href="/preventBurnout" class="brand-logo">Burnout tracker</a>
-          <!-- <a  class="brand-logo center"> </a> -->
+            <a href="/preventBurnout" class="brand-logo">Prevent Burnout</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="/login"> Login</a></li>
             <li><a href="/signup"> Signup</a></li>
           </ul>
         </div>
-      </nav>
+    </nav>
 <h1>Login to your Account</h1>
-<!-- <p class="account">Don't have a account? <a href="/signup"> Sign-up here!</a> </p> -->
-
-
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
             <div class="alert alert-danger"><%= el.msg %></div>
@@ -27,25 +22,12 @@
         <% }) %>    
     <% } %>
     <form action="/login" method="POST" class="log center-align z-depth-2 col s12">
-        <p class="account">Don't have an account? <a href="/signup"> Sign-up here!</a> </p>
+      <p class="account">Don't have an account? <a href="/signup"> Sign-up here!</a> </p>
         <input type="email" name="email" placeholder="Email">
         <input type="password" name="password" placeholder="Password">
-
-    
-        <input class="  center-align btn waves-effect waves-light button" type="submit">
-
-
-
-
-
+        <button class=" center-align btn waves-effect waves-light button" type="submit" >Submit</button>
     </form>
 </section>
-
-
-
-
-
-
 
 
 <%- include('partials/footer') -%>
